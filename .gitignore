@@ -1,2 +1,14 @@
-/node_modules
+# Dependencies (matches node_modules anywhere in the project)
+node_modules/
 **/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+build/
+
+# Environment variables & OS junk
+.env
+.env.local
+.DS_Store
+Thumbs.db
