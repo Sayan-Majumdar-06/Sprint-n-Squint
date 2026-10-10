@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd frontend-web/sprint-n-squint && npm install && npm run build && cd ../../server && npm install",
+    "build": "npm --prefix frontend-web/sprint-n-squint install && npm --prefix frontend-web/sprint-n-squint run build && npm --prefix server install",
     "start": "node server/server.js"
   }
 }

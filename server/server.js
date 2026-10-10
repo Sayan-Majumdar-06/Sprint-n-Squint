@@ -177,5 +177,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Sprint-n-Squint running at http://localhost:${PORT}`);
+    console.log(`Sprint-n-Squint running at PORT: ${PORT}`);
 });
