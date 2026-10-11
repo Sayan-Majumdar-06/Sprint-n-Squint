@@ -15,20 +15,31 @@ const OLLAMA_URL = process.env.OLLAMA_URL || 'http://127.0.0.1:11434/api/generat
 const MODEL = 'llava';
 
 const TARGETS = [
-//   'an actual insect',
-//   'a spiderweb',
-//   'an ant trail',
-//   'a puddle of water on the ground',
-//   'an actual cloud in the sky',
-//   'a bright yellow flower',
-//   'a pinecone',
-  'a stray cat or dog',
-  'a rusty piece of metal or pipe',
-  'a patch of weeds breaking through concrete',
-//   'a bird sitting on a power line',
-//   'a weirdly shaped leaf',
-//   'a shadow cast by a tree branch',
-  'a dead grass patch'
+  'a weed stubbornly fighting its way through solid concrete',
+  'a tragically dropped snack left on the pavement',
+  'a single fallen leaf that is at least three different colors',
+  'a piece of colorful sidewalk chalk art',
+  'a rock or pebble that is almost perfectly round',
+  'a rusted bolt, washer, or screw abandoned on the street',
+  'a dandelion that has completely turned to fluffy seeds',
+  'a tree root aggressively lifting or breaking a sidewalk',
+  'the reflection of the sky or a tree in a puddle or window',
+  'a piece of completely blue plastic litter',
+  'a patch of thick green moss growing on a brick or stone',
+  'an intact spiderweb',
+  'a lone bird feather resting on the ground',
+  'a bright yellow fire hydrant or utility box',
+  'a street sign with peeling paint or faded letters',
+  'a close-up of deeply grooved, gnarly tree bark',
+  'a stray, lost piece of sports equipment (like a tennis ball)',
+  'a clear footprint pressed into dirt, mud, or sand',
+  'a wild mushroom or fungus growing in the grass or on wood',
+  'a busy trail of ants on the move',
+  'a discarded receipt or ticket stub',
+  'a bright flower growing somewhere it definitely shouldn’t be',
+  'a perfectly intact pinecone or large seed pod',
+  'a stray cat, dog, or a very bold squirrel',
+  'a chain-link fence with something woven or stuck into it'
 ];
 
 const app = express();
