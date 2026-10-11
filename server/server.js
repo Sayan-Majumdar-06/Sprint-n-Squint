@@ -61,13 +61,22 @@ const verifyWithJudge = async (image, target) => {
     const raw = image.replace(/^data:image\/\w+;base64,/, '');
 
     const prompt = `
-        You are judging a scavenger hunt photo.
+            You are a strict, objective judge for a photo scavenger hunt. Your task is to determine if the target item: "${target}" is present in the image.
 
-        Step 1: In one short sentence, describe what is in the photo. Describe only what you can actually see.
-        Step 2: Is there ${target} in the photo? Other objects in the frame do not matter. It can be a close-up or partly visible, as long as you can tell it is ${target}. It must be a real physical thing. A photo of a screen, a drawing or a printed picture does not count.
+            Follow these strict rules:
+            1. The target must be a real, physical, 3D object. 
+            2. Explicitly check for cheating: If the target is displayed on a digital screen (look for bezels, pixels, or screen glare), printed on a piece of paper, a drawing, or a 2D photograph, it DOES NOT count.
+            3. The item can be partially obscured or close-up, as long as it is clearly identifiable as "${target}". Other objects in the background do not matter.
 
-        Reply with only JSON: {"sees": "<one short sentence>", "found": true or false}
-    `;
+            Before coming to a conclusion, think step-by-step. 
+            Provide your response strictly in the following JSON format, without any markdown formatting, code blocks, or extra text:
+
+            {
+            "description": "One short sentence describing exactly what is physically visible in the foreground and background of the photo.",
+            "reasoning": "Briefly explain if you see the target, and explicitly state whether it is a real 3D object or a 2D fake (screen/paper/drawing) based on depth and context clues.",
+            "found": true or false
+            }
+        `;
 
     try {
         const response = await fetch(OLLAMA_URL, {
@@ -88,6 +97,8 @@ const verifyWithJudge = async (image, target) => {
 
         const data = await response.json();
         const parsed = JSON.parse(data.response);
+
+        console.log(parsed);
         const found = parsed.found === true || String(parsed.found).toLowerCase() === 'true';
 
         return { ok: true, found, sees: String(parsed.sees || '').trim() };
