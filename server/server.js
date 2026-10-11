@@ -72,7 +72,7 @@ const verifyWithJudge = async (image, target) => {
             Provide your response strictly in the following JSON format, without any markdown formatting, code blocks, or extra text:
 
             {
-            "description": "One short sentence describing exactly what is physically visible in the foreground and background of the photo.",
+            "sees": "One short sentence describing exactly what is physically visible in the foreground and background of the photo.",
             "reasoning": "Briefly explain if you see the target, and explicitly state whether it is a real 3D object or a 2D fake (screen/paper/drawing) based on depth and context clues.",
             "found": true or false
             }
