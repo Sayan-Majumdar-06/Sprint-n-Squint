@@ -15,19 +15,19 @@ const OLLAMA_URL = process.env.OLLAMA_URL || 'http://127.0.0.1:11434/api/generat
 const MODEL = 'llava';
 
 const TARGETS = [
-  'an actual insect',
-  'a spiderweb',
-  'an ant trail',
-  'a puddle of water on the ground',
-  'an actual cloud in the sky',
-  'a bright yellow flower',
-  'a pinecone',
+//   'an actual insect',
+//   'a spiderweb',
+//   'an ant trail',
+//   'a puddle of water on the ground',
+//   'an actual cloud in the sky',
+//   'a bright yellow flower',
+//   'a pinecone',
   'a stray cat or dog',
   'a rusty piece of metal or pipe',
   'a patch of weeds breaking through concrete',
-  'a bird sitting on a power line',
-  'a weirdly shaped leaf',
-  'a shadow cast by a tree branch',
+//   'a bird sitting on a power line',
+//   'a weirdly shaped leaf',
+//   'a shadow cast by a tree branch',
   'a dead grass patch'
 ];
 
