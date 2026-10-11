@@ -61,19 +61,13 @@ const verifyWithJudge = async (image, target) => {
     const raw = image.replace(/^data:image\/\w+;base64,/, '');
 
     const prompt = `
-                    You are a strict and unforgiving game referee. 
-                    The player is trying to find: "${target}".
+        You are judging a scavenger hunt photo.
 
-                    Analyze the image carefully. 
-                    1. Write a 5-word description of what is actually in the image.
-                    2. Determine if the target ("${target}") is CLEARLY and indisputably visible in the image. 
-                    If the image shows something else (like a phone, a wall, a desk, or a different object), "found" MUST be false. Do not be generous.
+        Step 1: In one short sentence, describe what is in the photo. Describe only what you can actually see.
+        Step 2: Is there ${target} in the photo? Other objects in the frame do not matter. It can be a close-up or partly visible, as long as you can tell it is ${target}. It must be a real physical thing. A photo of a screen, a drawing or a printed picture does not count.
 
-                    You must respond with ONLY a valid JSON object in this exact format, with no extra text:
-                    {"sees": "short description here", "found": true} 
-                    OR 
-                    {"sees": "short description here", "found": false}
-                `;
+        Reply with only JSON: {"sees": "<one short sentence>", "found": true or false}
+    `;
 
     try {
         const response = await fetch(OLLAMA_URL, {
